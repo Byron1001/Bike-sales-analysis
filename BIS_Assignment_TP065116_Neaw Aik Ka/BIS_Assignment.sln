@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33801.447
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "BIS_Assignment", "BIS_Assignment\BIS_Assignment.dwproj", "{E0011ABD-EA0E-463E-A805-4F279BB43F9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0011ABD-EA0E-463E-A805-4F279BB43F9C}.Development|Default.ActiveCfg = Development
+		{E0011ABD-EA0E-463E-A805-4F279BB43F9C}.Development|Default.Build.0 = Development
+		{E0011ABD-EA0E-463E-A805-4F279BB43F9C}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F112A024-27AE-42CF-8788-AF4D54247063}
+	EndGlobalSection
+EndGlobal

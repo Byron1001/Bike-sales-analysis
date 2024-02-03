@@ -1,0 +1,28 @@
+WITH 
+MEMBER [Measures].[Total Sales Amount] AS 
+[Measures].[Sales Amount] + [Measures].[Sales Amount - Fact Reseller Sales], FORMAT_STRING='CURRENCY'
+MEMBER [Measures].[Total Cost of Products] AS 
+[Measures].[Total Product Cost] + [Measures].[Total Product Cost - Fact Reseller Sales], FORMAT_STRING='CURRENCY'
+MEMBER [Measures].[Internet GPM] AS 
+([Measures].[Sales Amount] - [Measures].[Total Product Cost]) / [Measures].[Sales Amount], FORMAT_STRING='Percent'
+MEMBER [Measures].[Reseller GPM] AS 
+([Measures].[Sales Amount - Fact Reseller Sales] - [Measures].[Total Product Cost - Fact Reseller Sales])
+/ [Measures].[Sales Amount - Fact Reseller Sales], FORMAT_STRING='Percent'
+MEMBER [Measures].[Total GPM] AS 
+([Measures].[Total Sales Amount] - [Measures].[Total Cost of Products]) / [Measures].[Total Sales Amount], FORMAT_STRING='Percent'
+SELECT{
+[Measures].[Total Sales Amount],
+[Measures].[Total Cost of Products],
+[Measures].[Internet GPM],
+[Measures].[Reseller GPM],
+[Measures].[Total GPM]}
+ON COLUMNS,
+NON EMPTY 
+ORDER(
+([Dim Sales Territory].[Sales Territory Country].CHILDREN,
+[Dim Product].[English Product Category Name].CHILDREN,
+[Dim Product].[English Product Subcategory Name].CHILDREN
+),
+[Measures].[Sales Amount],
+BDESC) ON ROWS
+FROM [Trek Bikes Data Warehouse 1];
